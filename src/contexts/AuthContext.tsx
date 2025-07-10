@@ -269,13 +269,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         options: {
           data: {
             name,
-            email: email.trim().toLowerCase(),
             role,
             city,
-            business_name: businessName,
-            description,
-            mobile,
-            verification_doc: verificationDoc
+            business_name: businessName || null,
+            description: description || null,
+            mobile: mobile || null,
+            verification_doc: verificationDoc || null
           }
         }
       });
@@ -302,7 +301,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             city,
             business_name: businessName,
             description,
-            is_verified: role === 'admin', // Only admins are auto-verified
+            is_verified: role === 'buyer' || role === 'admin', // Buyers and admins are auto-verified
             mobile: role === 'seller' ? mobile : undefined,
             verification_doc: role === 'seller' ? verificationDoc : undefined
           });

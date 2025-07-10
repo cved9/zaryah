@@ -68,7 +68,9 @@ export const RegisterPage: React.FC = () => {
         formData.role,
         formData.city,
         formData.role === 'seller' ? formData.businessName : undefined,
-        formData.role === 'seller' ? formData.description : undefined
+        formData.role === 'seller' ? formData.description : undefined,
+        formData.role === 'seller' ? formData.mobile : undefined,
+        formData.role === 'seller' ? formData.verificationDoc : undefined
       );
       
       if (success) {
